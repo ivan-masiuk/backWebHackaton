@@ -56,7 +56,7 @@ class Day(models.Model):
         verbose_name_plural = 'Дні'
 
     name = models.CharField(max_length=50, default='day-name')
-    week = models.ForeignKey(Week, on_delete=models.CASCADE, null=True)
+    week = models.ForeignKey(Week, on_delete=models.CASCADE, null=True, related_name='days')
 
     lesson_1 = models.ForeignKey(Lesson, on_delete=models.CASCADE, null=True, blank=True, related_name='lesson1')
     tutor_1 = models.ForeignKey(Tutor, on_delete=models.CASCADE, null=True, blank=True, related_name='tutor_1')
