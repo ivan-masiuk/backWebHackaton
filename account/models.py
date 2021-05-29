@@ -9,6 +9,10 @@ User._meta.get_field('email')._unique = True
 
 class AbstractUser(models.Model):
     phone_number = PhoneNumberField(null=False, blank=False, unique=True)
+    first_name = models.CharField(max_length=20, default='Name')
+    last_name = models.CharField(max_length=20, default='Surname')
+    third_name = models.CharField(max_length=20, default='ThirdName')
+
     # TYPE_USER_CHOICES = (
     #     ('tutor', 'Викладач'),
     #     ('student', 'Студент'),
@@ -24,8 +28,8 @@ class AbstractUser(models.Model):
 
 
 class Tutor(AbstractUser):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL,
-                                on_delete=models.CASCADE)
+    # user = models.OneToOneField(settings.AUTH_USER_MODEL,
+    #                             on_delete=models.CASCADE)
     img = models.ImageField(blank=True)
     link_zoom = models.URLField(default=None, blank=True)
 
@@ -35,8 +39,8 @@ class Tutor(AbstractUser):
 
 
 class Student(AbstractUser):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL,
-                                on_delete=models.CASCADE)
+    # user = models.OneToOneField(settings.AUTH_USER_MODEL,
+    #                             on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = 'Студент'
