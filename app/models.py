@@ -25,6 +25,7 @@ class Week(models.Model):
         return f'{self.name}'
 
 
+
 class Lesson(models.Model):
     class Meta:
         verbose_name = 'Пара'
