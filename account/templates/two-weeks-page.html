@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <div>
+        {% for week in weeks %}
+            {{ week.type_week }}
+            <div>
+                {% for day in week.week_days.all %}
+                    <div>
+                        {{ day.name_weekday }}
+                        <div>
+                            {% for pair in day.pairs.all %}
+                                <div>
+                                    <a href="{% url 'pair_view' pair.id %}">{{ pair.subject_fk.title }}</a>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
