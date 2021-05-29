@@ -18,6 +18,7 @@
       <excludeFolder url="file://$MODULE_DIR$/account/migrations" />
       <excludeFolder url="file://$MODULE_DIR$/app/migrations" />
       <excludeFolder url="file://$MODULE_DIR$/program/migrations" />
+      <excludeFolder url="file://$MODULE_DIR$/timetable/migrations" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

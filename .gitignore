@@ -163,3 +163,4 @@ Thumbs.db
 
 app/migrations
 account/migrations
+timetable/migrations

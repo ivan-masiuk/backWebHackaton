@@ -5,8 +5,4 @@ from app.models import (Group,
                         Day,
                         Subject)
 
-admin.site.register(Group)
-admin.site.register(Week)
-admin.site.register(Lesson)
-admin.site.register(Day)
-admin.site.register(Subject)
+

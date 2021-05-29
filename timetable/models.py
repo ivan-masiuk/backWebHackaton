@@ -26,14 +26,11 @@ class Pair(models.Model):
     subject_fk = models.ForeignKey('Subject', on_delete=models.CASCADE, related_name='pairs')
     tutor_fk = models.ForeignKey(Tutor, on_delete=models.CASCADE, related_name='pairs')
     week_day_fk = models.ForeignKey('DayOfTheWeek', on_delete=models.CASCADE, related_name='pairs')
-    week_fk = models.ForeignKey('Week', on_delete=models.CASCADE, related_name='pairs')
-    group_fk = models.ForeignKey('Group', on_delete=models.CASCADE, related_name='pairs')
-
     place = models.TextField(max_length=200)
     position = models.PositiveIntegerField(default=1, validators=[
                                                          MinValueValidator(1),
                                                          MaxValueValidator(5)])
-
+    
     class Meta:
         verbose_name = 'Пара'
         verbose_name_plural = 'Пари'

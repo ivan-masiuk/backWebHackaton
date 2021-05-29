@@ -1,7 +1,11 @@
 from django.contrib import messages
 from django.shortcuts import render, redirect
 
-from timetable.models import Group
+from timetable.models import (Group,
+                              Subject,
+                              Week,
+                              DayOfTheWeek,
+                              Pair)
 
 
 def main_page_view(request):
@@ -11,8 +15,8 @@ def main_page_view(request):
         name_group = request.POST['name_group']
         groups = Group.objects.all()
         for group in groups:
-            if group.name == name_group:
-                return redirect('group_weeks', group_id=group.id)
+            if group.title == name_group:
+                return redirect('two_weeks_view', group_id=group.id)
         else:
             messages.warning(request, "на жаль, такої групи не існує!")
             return redirect('main_page')
@@ -20,9 +24,15 @@ def main_page_view(request):
     return render(request, 'start-page.html')
 
 
-def two_weeks_view(request):
-    pass
+def two_weeks_view(request, group_id):
+    context = {}
+    weeks = Group.objects.get(id=1).weeks.all()
+    context.update({'weeks': weeks})
+    return render(request, 'two-weeks-page.html', context)
 
 
-def pair_view(request):
-    pass
+def pair_view(request, pair_id):
+    context = {}
+    context.update({'pair': Pair.objects.get(id=pair_id)})
+
+    return render(request, 'pair-page.html', context)

@@ -41,7 +41,7 @@ class Tutor(models.Model):
     first_name = models.CharField(max_length=20, default='Name')
     last_name = models.CharField(max_length=20, default='Surname')
     # third_name = models.CharField(max_length=20, default='ThirdName')
-    zoom_link = models.URLField()
+    zoom_link = models.URLField(default='')
 
     class Meta:
         verbose_name = 'Викладач'
