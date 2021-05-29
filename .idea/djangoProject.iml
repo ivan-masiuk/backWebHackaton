@@ -29,6 +29,7 @@
         <option value="$MODULE_DIR$/templates" />
         <option value="$MODULE_DIR$/account/templates" />
         <option value="$MODULE_DIR$/app/templates" />
+        <option value="$MODULE_DIR$/timetable/templates" />
       </list>
     </option>
   </component>

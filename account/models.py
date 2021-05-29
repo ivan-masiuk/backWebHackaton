@@ -27,17 +27,6 @@ class AbstractUser(models.Model):
         return f'{self.user.first_name} {self.user.last_name} {self.id}'
 
 
-class Tutor(AbstractUser):
-    # user = models.OneToOneField(settings.AUTH_USER_MODEL,
-    #                             on_delete=models.CASCADE)
-    img = models.ImageField(blank=True)
-    link_zoom = models.URLField(default=None, blank=True)
-
-    class Meta:
-        verbose_name = 'Викладач'
-        verbose_name_plural = 'Викладачі'
-
-
 class Student(AbstractUser):
     # user = models.OneToOneField(settings.AUTH_USER_MODEL,
     #                             on_delete=models.CASCADE)
@@ -45,3 +34,15 @@ class Student(AbstractUser):
     class Meta:
         verbose_name = 'Студент'
         verbose_name_plural = 'Студенти'
+
+
+class Tutor(models.Model):
+    # phone_number = PhoneNumberField(null=False, blank=False, unique=True)
+    first_name = models.CharField(max_length=20, default='Name')
+    last_name = models.CharField(max_length=20, default='Surname')
+    # third_name = models.CharField(max_length=20, default='ThirdName')
+    zoom_link = models.URLField()
+
+    class Meta:
+        verbose_name = 'Викладач'
+        verbose_name_plural = 'Викладачі'
