@@ -1,5 +1,5 @@
-from django.shortcuts import render
 from app.models import Group
+from django.shortcuts import render, redirect
 
 
 def main_page(request):
@@ -17,3 +17,17 @@ def group_weeks(request, group_id):
         week_2 = weeks[1]
         context.update({'week_2': week_2})
     return render(request, 'weeks-page.html', context)
+
+
+def test(request):
+
+    action = request.POST.get('action')
+
+    if request.POST and action == 'Мій розклад':
+        name_group = request.POST['name_group']
+        groups = Group.objects.all()
+        for group in groups:
+            if group.name == name_group:
+                return redirect('')
+        else:
+            return redirect('')
