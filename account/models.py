@@ -9,18 +9,18 @@ User._meta.get_field('email')._unique = True
 
 class AbstractUser(models.Model):
     phone_number = PhoneNumberField(null=False, blank=False, unique=True)
-    TYPE_USER_CHOICES = (
-        ('tutor', 'Викладач'),
-        ('student', 'Студент'),
-    )
-    type_user = models.CharField(max_length=15, choices=TYPE_USER_CHOICES)
+    # TYPE_USER_CHOICES = (
+    #     ('tutor', 'Викладач'),
+    #     ('student', 'Студент'),
+    # )
+    # type_user = models.CharField(max_length=15, choices=TYPE_USER_CHOICES)
     img = models.ImageField(blank=True)
 
     class Meta:
         abstract = True
 
     def __str__(self):
-        return f'{self.user.first_name} {self.user.last_name}'
+        return f'{self.user.first_name} {self.user.last_name} {self.id}'
 
 
 class Tutor(AbstractUser):

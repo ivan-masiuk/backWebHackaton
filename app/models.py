@@ -1,5 +1,6 @@
 from django.db import models
 from account.models import Tutor
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 
 class Group(models.Model):
@@ -19,21 +20,29 @@ class Week(models.Model):
         verbose_name_plural = 'Тиждні'
 
     name = models.CharField(max_length=100, default='week-name')
+    group_fk = models.ForeignKey('Group', on_delete=models.CASCADE, related_name="weeks")
 
     def __str__(self):
         return f'{self.name}'
 
 
 class Lesson(models.Model):
-    number_position = models.ForeignKey
+    class Meta:
+        verbose_name = 'Пара'
+        verbose_name_plural = 'Пари'
+
     subject = models.ForeignKey('Subject', on_delete=models.CASCADE, null=True)
     tutor = models.ForeignKey(Tutor, on_delete=models.CASCADE, null=True)
     day = models.ForeignKey('Day', on_delete=models.CASCADE, null=True)
     week = models.ForeignKey(Week, on_delete=models.CASCADE, null=True)
     group = models.ForeignKey(Group, on_delete=models.CASCADE, null=True)
+    position_lesson = models.PositiveIntegerField(default=1,
+                                                  validators=[
+                                                         MinValueValidator(1),
+                                                         MaxValueValidator(5)])
 
     def __str__(self):
-        return f'{self.day}'
+        return f'{self.id}'
 
 
 class Subject(models.Model):
