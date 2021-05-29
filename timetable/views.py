@@ -28,11 +28,11 @@ def two_weeks_view(request, group_id):
     context = {}
     weeks = Group.objects.get(id=1).weeks.all()
     context.update({'weeks': weeks})
-    return render(request, '/timetable/two-weeks-page', context)
+    return render(request, 'timetable/two-weeks-page.html', context)
 
 
 def pair_view(request, pair_id):
     context = {}
     context.update({'pair': Pair.objects.get(id=pair_id)})
 
-    return render(request, '/timetable/pair-page.html', context)
+    return render(request, 'timetable/pair-page.html', context)

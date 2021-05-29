@@ -1,3 +1,7 @@
 from django.contrib import admin
 
-# Register your models here.
+from tutor_info.models import TutorStatistic, VoteStudent
+
+
+admin.site.register(TutorStatistic)
+admin.site.register(VoteStudent)

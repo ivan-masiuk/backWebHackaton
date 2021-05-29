@@ -161,6 +161,8 @@ Thumbs.db
 
 # End of https://www.toptal.com/developers/gitignore/api/django
 
-app/migrations
 account/migrations
 timetable/migrations
+finditems/migrations
+tutor_info/migrations
+

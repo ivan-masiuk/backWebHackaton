@@ -1,4 +1,4 @@
-{%extends 'base.html'%}
+{%extends 'base.html' %}
 {%load static%}
 
 
@@ -54,7 +54,7 @@
                 Привіт!<br> Оберіть свою групу,<br>щоб дізнатись ваш розклад
             </span>
         </section>
-        <form action="." method="post">
+        <form action="../app/templates" method="post">
             {% csrf_token %}
             <input class="search-field" type="text" name='name_group' placeholder="Наприклад, група БМ-02">
             <input type="submit" value="Знайти" name="action">

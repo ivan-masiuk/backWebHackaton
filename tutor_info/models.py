@@ -18,9 +18,17 @@ class VoteAbstract(models.Model):
 
 
 class TutorStatistic(VoteAbstract):
-    tutor_fk = models.ForeignKey('Profile', on_delete=models.CASCADE, related_name='statistic')
+    tutor_profile_fk = models.ForeignKey('account.Profile', on_delete=models.CASCADE, related_name='statistics')
+
+    class Meta:
+        verbose_name = 'Статистика викладача'
+        verbose_name_plural = 'Статистики викладачів'
 
 
 class VoteStudent(VoteAbstract):
-    tutor_fk = models.ForeignKey('Profile', on_delete=models.CASCADE, related_name='votes_by_student')
-    student_fk = models.ForeignKey('Profile', on_delete=models.CASCADE, related_name='votes_for_tutor')
+    tutor_profile_fk = models.ForeignKey('account.Profile', on_delete=models.CASCADE, related_name='votes_by_student')
+    student_profile_fk = models.ForeignKey('account.Profile', on_delete=models.CASCADE, related_name='votes_for_tutor')
+
+    class Meta:
+        verbose_name = 'Голос студента'
+        verbose_name_plural = 'Голоси студентів'

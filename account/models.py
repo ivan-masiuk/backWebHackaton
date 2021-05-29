@@ -15,5 +15,9 @@ class Profile(models.Model):
     phone_number = PhoneNumberField(null=False, blank=False, unique=True)
     img = models.ImageField(blank=True)
 
+    class Meta:
+        verbose_name = 'Профіль'
+        verbose_name_plural = 'Профілі'
+
     def __str__(self):
         return f'ID Profile:{self.id}'
