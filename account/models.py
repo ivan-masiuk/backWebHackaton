@@ -19,6 +19,9 @@ class AbstractUser(models.Model):
     class Meta:
         abstract = True
 
+    def __str__(self):
+        return f'{self.user.first_name} {self.user.last_name}'
+
 
 class Tutor(AbstractUser):
     user = models.OneToOneField(settings.AUTH_USER_MODEL,
@@ -29,9 +32,6 @@ class Tutor(AbstractUser):
     class Meta:
         verbose_name = 'Викладач'
         verbose_name_plural = 'Викладачі'
-
-    def __str__(self):
-        return f'{self.user.first_name} {self.user.last_name}'
 
 
 class Student(AbstractUser):

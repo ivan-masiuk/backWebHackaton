@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 
-{% block title %}Log-in{% endblock %}
+{% block title %}Вхід{% endblock %}
 
 {% block content %}
-    <h1>Log-in</h1>
+    <h1>Вхід</h1>
 
     {% if form.errors %}
-        <p>Your username and password didn't match.Please try again.</p>
+        <p>Користувача з таким юзернеймом не існує!</p>
     {% else %}
-        <p>Please, use the following form to log-in:</p>
+        <p>Будь ласка, використовуєте форму нижче для входу:</p>
     {% endif %}
 
     <div class="login-form">
@@ -19,6 +19,6 @@
             <p><input type="submit" value="Log-in"></p>
         </form>
 
-        <p><a href="{% url "password_reset" %}">Forgotten your password?</a></p>
+        <p><a href="{% url "password_reset" %}">Забули пароль?</a></p>
     </div>
 {% endblock %}
