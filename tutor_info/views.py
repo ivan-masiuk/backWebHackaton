@@ -28,11 +28,16 @@ def vote_student_view(request, tutor_profile_id):
 
     if request.POST and action == 'Оцінити тьютора':
         student = Profile.objects.get(user=request.user)
+        # add VoteStudent
         VoteStudent.objects.create(punctuality=request.POST['punctuality'],
                                    loyalty=request.POST['loyalty'],
                                    grading=request.POST['grading'],
                                    tutor_fk=tutor,
                                    student_fk=student)
+
+        # math new TutorStatistic
+
+
         messages.success(request, "Вітаємо, Ваш голос враховано! Дякуємо!")
         return redirect('tutor_info_pass', tutor_id=tutor_profile_id)
 
