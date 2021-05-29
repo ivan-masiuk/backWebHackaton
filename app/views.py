@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect
 
 
 def main_page(request):
-    return render(request, 'base.html')
+    return render(request, 'start-page.html')
 
 
 def group_weeks(request, group_id):

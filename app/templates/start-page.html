@@ -1,10 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{%extends 'base.html'%}
+{%load static%}
 
-</body>
-</html>
+
+{%block content%}
+<style>
+    .start-page {
+        margin: 200px 250px;
+    }
+
+    #greeting span{
+        font-family: Rubik;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 46px;
+        line-height: 55px;
+
+        color: #0F1250;
+    }
+
+    .plane {
+        float: left;
+        padding-top: 15px;
+    }
+
+    .search-field {
+        margin-top: 62px;
+    }
+    .search-field{
+        background: #FFFFFF;
+
+        border: 3px solid #0F1250;
+        box-sizing: border-box;
+        
+        box-shadow: 0px 2px 2px #0F1250;
+        border-radius: 20px;
+        height: 65px;
+        width: 320px;
+    }
+    ::placeholder{
+        font-family: Rubik;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        font-size: 18px;
+        color: #B7B8D5;
+    }
+</style>
+<main>
+    <div class="start-page">
+        <section id="greeting">
+            <img class=plane src="/static/plane.png">
+            <span id="greeting">
+                Привіт!<br> Оберіть свою групу,<br>щоб дізнатись ваш розклад
+            </span>
+        </section>
+        <form>
+        <input class="search-field" type="text" placeholder="Наприклад, група БМ-02">
+        <input type="button" value="Знайти" name="action">
+        </form>
+    </div>
+
+</main>
+{%endblock%}
