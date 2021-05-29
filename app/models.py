@@ -1,5 +1,4 @@
 from django.db import models
-from account.models import Tutor
 from django.core.validators import MaxValueValidator, MinValueValidator
 
 
@@ -32,7 +31,6 @@ class Lesson(models.Model):
         verbose_name_plural = 'Пари'
 
     subject = models.ForeignKey('Subject', on_delete=models.CASCADE, null=True)
-    tutor = models.ForeignKey(Tutor, on_delete=models.CASCADE, null=True)
     day = models.ForeignKey('Day', on_delete=models.CASCADE, null=True)
     week = models.ForeignKey(Week, on_delete=models.CASCADE, null=True)
     group = models.ForeignKey(Group, on_delete=models.CASCADE, null=True)

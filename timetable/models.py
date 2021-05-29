@@ -3,7 +3,7 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 
 from phonenumber_field.modelfields import PhoneNumberField
 
-from account.models import Tutor
+from account.models import Profile
 
 
 class Group(models.Model):
@@ -24,7 +24,7 @@ class Subject(models.Model):
 
 class Pair(models.Model):
     subject_fk = models.ForeignKey('Subject', on_delete=models.CASCADE, related_name='pairs')
-    tutor_fk = models.ForeignKey(Tutor, on_delete=models.CASCADE, related_name='pairs')
+    tutor_fk = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='pairs')
     week_day_fk = models.ForeignKey('DayOfTheWeek', on_delete=models.CASCADE, related_name='pairs')
     place = models.TextField(max_length=200)
     position = models.PositiveIntegerField(default=1, validators=[
