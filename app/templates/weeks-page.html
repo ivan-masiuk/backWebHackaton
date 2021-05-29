@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if week_1 %}
+        {% for day in week_1.day_set.all %}
+            {% if day.lesson_1 %}
+                {{ day.lesson_1.name }}
+            {% endif %}
+            {% if day.lesson_2 %}
+                {{ day.lesson_2.name }}
+            {% endif %}
+            {% if day.lesson_3 %}
+                {{ day.lesson_3.name }}
+            {% endif %}
+            {% if day.lesson_4 %}
+                {{ day.lesson_4.name }}
+            {% endif %}
+            {% if day.lesson_5 %}
+                {{ day.lesson_5.name }}
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+
+
+    {% if week_2 %}
+        {% for day in week_2.day_set.all %}
+            {% if day.lesson_1 %}
+                {{ day.lesson_1.name }}
+            {% endif %}
+            {% if day.lesson_2 %}
+                {{ day.lesson_2.name }}
+            {% endif %}
+            {% if day.lesson_3 %}
+                {{ day.lesson_3.name }}
+            {% endif %}
+            {% if day.lesson_4 %}
+                {{ day.lesson_4.name }}
+            {% endif %}
+            {% if day.lesson_5 %}
+                {{ day.lesson_5.name }}
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endblock %}
