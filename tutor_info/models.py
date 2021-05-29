@@ -20,6 +20,9 @@ class VoteAbstract(models.Model):
 class TutorStatistic(VoteAbstract):
     tutor_profile_fk = models.ForeignKey('account.Profile', on_delete=models.CASCADE, related_name='statistics')
 
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
     class Meta:
         verbose_name = 'Статистика викладача'
         verbose_name_plural = 'Статистики викладачів'

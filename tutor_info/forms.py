@@ -1,12 +1,17 @@
 from django import forms
-from django.contrib.auth.models import User
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 
-class UserRegisterForm(forms.ModelForm):
-    username = forms.CharField(label="Юзернейм", help_text="Юзернейм може мати букви, цифри та знаки @/./+/-/_ ")
-    email = forms.EmailField(label="E-mail")
-
+class StudentVoteForm(forms.Form):
+    punctuality = forms.IntegerField(label="Пунктуальність", validators=[
+                                                    MinValueValidator(1),
+                                                    MaxValueValidator(10)])
+    loyalty = forms.IntegerField(label="Лояльність", validators=[
+                                                    MinValueValidator(1),
+                                                    MaxValueValidator(10)])
+    grading = forms.IntegerField(label="Система оцінювання", validators=[
+                                                    MinValueValidator(1),
+                                                    MaxValueValidator(10)])
 
     class Meta:
-        model = User
-        fields = ('first_name', 'last_name', 'username', 'email', 'password1', 'password2')
+        fields = ('punctuality', 'loyalty', 'grading')

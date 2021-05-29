@@ -3,4 +3,10 @@
 
 {% block content %}
 
+    <form action="." method="post">
+        {{ form_for_student.as_p }}
+        {% csrf_token %}
+        <p><input type="submit" name="action" value="Оцінити тьютора"></p>
+    </form>
+
 {% endblock %}

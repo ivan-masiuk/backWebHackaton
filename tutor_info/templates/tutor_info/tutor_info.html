@@ -2,5 +2,26 @@
 
 
 {% block content %}
+    <div>
+        <p>Name: {{ tutor.user.first_name }} {{ tutor.user.last_name }} {{ tutor.third_name }}</p>
+        <p>Phone: {{ tutor.phone_number }}</p>
+        <p>Email: {{ tutor.user.email }}</p>
+        <img src="{{ tutor.img.url }}" width="189" height="255">
+    </div>
+
+
+    <div>
+        <form action="." method="post">
+            {% csrf_token %}
+            <p><input type="submit" name="action" value="Оцінити тьютора"></p>
+        </form>
+
+    </div>
+
+    <div>
+        <p>Лояльність: {{  }}</p>
+        <p>Пунктуальність: {{  }} </p>
+        <p>Система оцінювання: {{  }}</p>
+    </div>
 
 {% endblock %}
