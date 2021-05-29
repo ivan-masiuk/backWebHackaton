@@ -14,6 +14,7 @@ class AbstractUser(models.Model):
         ('student', 'Студент'),
     )
     type_user = models.CharField(max_length=15, choices=TYPE_USER_CHOICES)
+    img = models.ImageField(blank=True)
 
     class Meta:
         abstract = True
@@ -22,8 +23,21 @@ class AbstractUser(models.Model):
 class Tutor(AbstractUser):
     user = models.OneToOneField(settings.AUTH_USER_MODEL,
                                 on_delete=models.CASCADE)
+    img = models.ImageField(blank=True)
+    link_zoom = models.URLField(default='')
+
+    class Meta:
+        verbose_name = 'Викладач'
+        verbose_name_plural = 'Викладачі'
+
+    def __str__(self):
+        return f'{self.user.first_name} {self.user.last_name}'
 
 
 class Student(AbstractUser):
     user = models.OneToOneField(settings.AUTH_USER_MODEL,
                                 on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name = 'Студент'
+        verbose_name_plural = 'Студенти'

@@ -1,4 +1,5 @@
 from django.db import models
+from account.models import Tutor
 
 
 class Group(models.Model):
@@ -22,20 +23,6 @@ class Week(models.Model):
 
     def __str__(self):
         return f'{self.name} - {self.group.name}'
-
-
-class Tutor(models.Model):
-    class Meta:
-        verbose_name = 'Викладач'
-        verbose_name_plural = 'Викладачі'
-
-    first_name = models.CharField(max_length=200, default='fist-name')
-    last_name = models.CharField(max_length=200, default='last-name')
-    img = models.ImageField(blank=True)
-    link_zoom = models.URLField(default='')
-
-    def __str__(self):
-        return f'{self.first_name} {self.last_name}'
 
 
 class Lesson(models.Model):
