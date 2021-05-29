@@ -1,4 +1,5 @@
-from app.models import Group, Tutor, Lesson
+from app.models import Group, Lesson
+from account.models import Tutor
 from django.shortcuts import render, redirect
 
 

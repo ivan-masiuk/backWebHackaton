@@ -42,7 +42,16 @@ class Day(models.Model):
         verbose_name = 'День'
         verbose_name_plural = 'Дні'
 
-    name = models.CharField(max_length=50, default='day-name')
+    TYPE_DAY_CHOICES = (
+        ('monday', 'понеділок'),
+        ('tuesday', 'вівторок'),
+        ('wednesday', 'середа'),
+        ('thursday', 'четверг'),
+        ('friday', 'пятниця')
+    )
+
+    day = models.CharField(max_length=20, choices=TYPE_DAY_CHOICES, default='')
+
     week = models.ForeignKey(Week, on_delete=models.CASCADE, null=True, related_name='days')
 
     lesson_1 = models.ForeignKey(Lesson, on_delete=models.CASCADE, null=True, blank=True, related_name='lesson1')
@@ -61,4 +70,4 @@ class Day(models.Model):
     tutor_5 = models.ForeignKey(Tutor, on_delete=models.CASCADE, null=True, blank=True, related_name='tutor_5')
 
     def __str__(self):
-        return f'{self.name} - {self.week.group.name}'
+        return f'{self.day} - {self.week.group.name}'

@@ -2,7 +2,7 @@
 
 {% block content %}
     tutor:{{ tutor.user.first_name }} {{ tutor.user.last_name }}<br>
-    zoom:{{ tutor.link_zoom }}<br>
+    <a href="{{ tutor.link_zoom }}">zoom</a><br>
     lesson: {{ lesson.name }}
     {% if tutor.img %}
         <img src="{{ lesson.img.url }}">
