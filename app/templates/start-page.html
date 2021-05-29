@@ -54,9 +54,10 @@
                 Привіт!<br> Оберіть свою групу,<br>щоб дізнатись ваш розклад
             </span>
         </section>
-        <form>
-        <input class="search-field" type="text" placeholder="Наприклад, група БМ-02">
-        <input type="button" value="Знайти" name="action">
+        <form action="." method="post">
+            {% csrf_token %}
+            <input class="search-field" type="text" name='name_group' placeholder="Наприклад, група БМ-02">
+            <input type="submit" value="Знайти" name="action">
         </form>
     </div>
 
