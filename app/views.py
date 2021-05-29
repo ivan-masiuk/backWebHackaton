@@ -20,7 +20,6 @@ def group_weeks(request, group_id):
 
 
 def test(request):
-
     action = request.POST.get('action')
 
     if request.POST and action == 'Мій розклад':
