@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-    tutor:{{ tutor.first_name }} {{ tutor.last_name }}<br>
+    tutor:{{ tutor.user.first_name }} {{ tutor.user.last_name }}<br>
     zoom:{{ tutor.link_zoom }}<br>
     lesson: {{ lesson.name }}
     {% if tutor.img %}
