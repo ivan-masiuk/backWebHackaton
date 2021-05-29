@@ -27,7 +27,7 @@ class Tutor(AbstractUser):
     user = models.OneToOneField(settings.AUTH_USER_MODEL,
                                 on_delete=models.CASCADE)
     img = models.ImageField(blank=True)
-    link_zoom = models.URLField(default='')
+    link_zoom = models.URLField(default=None, blank=True)
 
     class Meta:
         verbose_name = 'Викладач'
