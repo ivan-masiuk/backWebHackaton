@@ -48,7 +48,7 @@ class DayOfTheWeek(models.Model):
     )
     week_fk = models.ForeignKey('Week', on_delete=models.CASCADE, related_name='week_days')
 
-    name_weekday = models.CharField(max_length=15, choices=NAME_CHOICES, unique=True)
+    name_weekday = models.CharField(max_length=15, choices=NAME_CHOICES)
 
     def __str__(self):
         return f'{self.name_weekday}'
