@@ -5,6 +5,7 @@ class Group(models.Model):
     class Meta:
         verbose_name = 'Група'
         verbose_name_plural = 'Групи'
+
     name = models.CharField(max_length=20, default='group-name')
 
     def __str__(self):
