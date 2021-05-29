@@ -140,6 +140,7 @@ LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
 
 
+
 AUTHENTICATION_BACKENDS = [
     'account.authentication.EmailAuthBackend',
     'django.contrib.auth.backends.ModelBackend',
