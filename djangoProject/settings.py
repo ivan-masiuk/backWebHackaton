@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'livereload',
+
     'app',
 
 ]
@@ -109,7 +109,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'uk'
+LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
 
@@ -139,14 +139,11 @@ LOGIN_REDIRECT_URL = 'main_page'
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 
 
 AUTHENTICATION_BACKENDS = [
     'account.authentication.EmailAuthBackend',
     'django.contrib.auth.backends.ModelBackend',
 ]
-
-
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-EMAIL_BACKEND = "sgbackend.SendGridBackend"
-SENDGRID_API_KEY = "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"
