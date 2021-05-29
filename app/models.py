@@ -20,7 +20,6 @@ class Week(models.Model):
         verbose_name_plural = 'Тиждні'
 
     name = models.CharField(max_length=100, default='week-name')
-    group_fk = models.ForeignKey('Group', on_delete=models.CASCADE, related_name="weeks")
 
     def __str__(self):
         return f'{self.name}'
