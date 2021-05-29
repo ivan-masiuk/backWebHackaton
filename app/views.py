@@ -1,4 +1,4 @@
-from app.models import Group
+from app.models import Group, Tutor, Lesson
 from django.shortcuts import render, redirect
 
 
@@ -30,3 +30,12 @@ def test(request):
                 return redirect('')
         else:
             return redirect('')
+
+
+def lesson_page(request, tutor_id, lesson_id):
+    tutor = Tutor.objects.get(id=tutor_id)
+    lesson = Lesson.objects.get(id=lesson_id)
+    context = {'tutor': tutor,
+               'lesson': lesson}
+
+    return render(request, 'lesson.html', context)

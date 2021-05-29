@@ -1,3 +1,10 @@
 {% extends "base.html" %}
+
 {% block content %}
+    tutor:{{ tutor.first_name }} {{ tutor.last_name }}<br>
+    zoom:{{ tutor.link_zoom }}<br>
+    lesson: {{ lesson.name }}
+    {% if tutor.img %}
+        <img src="{{ lesson.img.url }}">
+    {% endif %}
 {% endblock %}
