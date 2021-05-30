@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 {% load static %}
@@ -44,7 +43,8 @@
             margin-left: 100px;
             padding-right: 15px;
         }
-        .university-name{
+
+        .university-name {
             font-family: Rubik;
             font-style: normal;
             font-weight: bold;
@@ -54,6 +54,8 @@
             text-align: center;
         }
     </style>
+    {% block style %}
+    {% endblock %}
 </head>
 
 <body>
@@ -98,19 +100,19 @@
 
 <div>
     {% if messages %}
-     {% for message in messages %}
+        {% for message in messages %}
 
-         {% if message.tags == 'error' %}
-             <div class="alert alert-danger" role="alert">
-                {{ message }}
-             </div>
-         {% else %}
-             <div class="alert alert-{{ message.tags }}" role="alert">
-                {{ message }}
-             </div>
-         {% endif %}
+            {% if message.tags == 'error' %}
+                <div class="alert alert-danger" role="alert">
+                    {{ message }}
+                </div>
+            {% else %}
+                <div class="alert alert-{{ message.tags }}" role="alert">
+                    {{ message }}
+                </div>
+            {% endif %}
 
-     {% endfor %}
+        {% endfor %}
     {% endif %}
 </div>
 

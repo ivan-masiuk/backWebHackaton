@@ -20,7 +20,7 @@
                         <div>
                             {% for pair in day.pairs.all %}
                                 <div>
-                                    <a href="{% url 'pair_view' pair.id %}">{{ pair.subject_fk.title }}</a>
+                                    {{ pair.position }}.<a href="{% url 'pair_view' pair.id %}">{{ pair.subject_fk.title }}</a>
                                 </div>
                             {% endfor %}
                         </div>

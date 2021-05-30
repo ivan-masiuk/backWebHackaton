@@ -2,11 +2,14 @@
 
 
 {% block content %}
-    <div>
-        {{ pair.subject_fk.title }}<br>
-        {{ pair.place }}<br>
-        <img src="{{ pair.tutor_fk.img.url }}">
-        {{ pair.tutor_fk.user.first_name }} {{ pair.tutor_fk.user.last_name }} {{ pair.tutor_fk.third_name }}
-        <a href="{% url 'tutor_info_view' pair.tutor_fk.id %}">оцінити</a>
+    <div style="width: 600px;background: #f2f2f2;border-radius: 10px;padding: 10px;margin: auto;">
+        <div style="text-align: center;font-size: 30px;font-weight: bold;">{{ pair.subject_fk.title }}</div>
+        <div><span style="font-weight: bold;">Місце проведення: </span>{{ pair.place }}</div>
+        <div style="font-size: 20px;font-weight: bold;text-align: center;">викладач</div>
+        <div style="display: table;margin:auto;">
+            <img style="border-radius: 50%;width: 100px;" src="{{ pair.tutor_fk.img.url }}">
+            <span style="font-size: 20px;margin-left: 10px;margin-right: 10px;">{{ pair.tutor_fk.user.first_name }} {{ pair.tutor_fk.user.last_name }} {{ pair.tutor_fk.third_name }}</span>
+            <a href="{% url 'tutor_info_view' pair.tutor_fk.id %}">оцінити</a>
+        </div>
     </div>
 {% endblock %}
