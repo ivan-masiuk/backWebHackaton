@@ -1,0 +1,24 @@
+.search-items input {
+    border: 3px solid #0F1250;
+    border-radius: 20px;
+    height: 50px;
+    font-size: 20px;
+    outline: none;
+}
+
+.item img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.item {
+    width: 300px;
+    margin-left: 10px;
+}
+
+.items {
+    margin-top: 20px;
+    justify-content: center;
+}

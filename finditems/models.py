@@ -6,6 +6,7 @@ class Item(models.Model):
     title = models.CharField(max_length=200, default='')
     img = models.ImageField()
     user = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True)
+    desc = models.TextField(default='')
 
     def __str__(self):
         return self.title

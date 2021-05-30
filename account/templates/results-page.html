@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div style="display: flex;">
+        {% for item in items %}
+            <div>
+                <img src="{{ item.img.url }}">
+                <span>{{ item.title }}</span>
+                <span>{{ user.first_name }} {{ user.last_name }}</span>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

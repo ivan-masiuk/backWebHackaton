@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block style %}
+    <link rel="stylesheet" href="/static/css/item.css">
+{% endblock %}
+
+{% block content %}
+    <div style="display: table;margin: auto;width: 300px;">
+        <div class="image_side">
+            <div style="font-weight: bold;text-align: center;">{{ item.title }}</div>
+            <img src="{{ item.img.url }}">
+        </div>
+        <div style="">
+            <div><span style="font-weight: bold;">Автор:</span> {{ item.user.user.first_name }} {{ item.user.user.last_name }}</div>
+            <div style="word-break: break-word;"><span style="font-weight: bold;">Опис:</span>{{ item.desc }}</div>
+            <div>
+                <span style="font-weight: bold;">Телефон: </span>
+                <a href="tel:{{ item.user.phone_number }}">{{ item.user.phone_number }}</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
