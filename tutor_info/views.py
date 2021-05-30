@@ -37,7 +37,19 @@ def tutor_info_view(request, tutor_profile_id):
     # try to get TutorStatistic
     statistic_tutor = getTutorStatisticByTutor(tutor)
 
+    punctuality = round(statistic_tutor.punctuality, 2)
+    loyalty = round(statistic_tutor.loyalty, 2)
+    grading = round(statistic_tutor.grading, 2)
+    relevance = round(statistic_tutor.relevance, 2)
+    positive = round(statistic_tutor.positive, 2)
+
     context = {
+        'punctuality': punctuality,
+        'loyalty': loyalty,
+        'grading': grading,
+        'relevance': relevance,
+        'positive': positive,
+
         'tutor': tutor,
         'statistic_tutor': statistic_tutor,
     }
