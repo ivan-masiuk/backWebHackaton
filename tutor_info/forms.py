@@ -12,11 +12,11 @@ class StudentVoteForm(forms.Form):
     grading = forms.IntegerField(label="Система оцінювання", validators=[
                                                     MinValueValidator(1),
                                                     MaxValueValidator(5)])
-    relevance = forms.IntegerField(label="Система оцінювання", validators=[
+    relevance = forms.IntegerField(label="Актуальність матеріалу", validators=[
                                                     MinValueValidator(1),
                                                     MaxValueValidator(5)])
 
-    positive = forms.IntegerField(label="Система оцінювання", validators=[
+    positive = forms.IntegerField(label="Позитивний настрій", validators=[
         MinValueValidator(1),
         MaxValueValidator(5)])
 

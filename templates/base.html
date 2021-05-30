@@ -55,7 +55,7 @@
 <body>
 {% block header %}
     <header>
-        <section id="title-info">
+        <section id="title-info" onclick="location.href='/'">
             <img style='vertical-align:middle;' src='/static/nau-photo.png' id='title-image'>
             <span class="university-name" style='vertical-align:middle; display:inline;'>
                 Національний авіаційний унівeрситет
@@ -66,10 +66,7 @@
             {% block nav %}
                 <ul class="nav justify-content-end">
                     <li class="nav-item">
-                        <a class="nav-link active" href="/">Головна</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Бюро знахідок</a>
+                        <a class="nav-link active" href="#">Бюро знахідок</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url "all_tutors_view" %}">Викладачі</a>

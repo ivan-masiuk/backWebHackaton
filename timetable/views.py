@@ -26,7 +26,7 @@ def main_page_view(request):
 
 def two_weeks_view(request, group_id):
     context = {}
-    weeks = Group.objects.get(id=1).weeks.all()
+    weeks = Group.objects.get(id=group_id).weeks.all()
     context.update({'weeks': weeks})
     return render(request, 'timetable/two-weeks-page.html', context)
 
