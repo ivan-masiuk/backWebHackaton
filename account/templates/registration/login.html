@@ -3,20 +3,20 @@
 {% block title %}Вхід{% endblock %}
 
 {% block content %}
-    <h1>Вхід</h1>
+    <div class="login-form" style="margin: auto; width: 800px; margin-top:20px">
+        <h1>Вхід</h1>
 
-    {% if form.errors %}
-        <p>Користувача з таким юзернеймом не існує!</p>
-    {% else %}
-        <p>Будь ласка, використовуєте форму нижче для входу:</p>
-    {% endif %}
+        {% if form.errors %}
+            <p>Користувача з таким юзернеймом не існує!</p>
+        {% else %}
+            <p>Будь ласка, використовуєте форму нижче для входу:</p>
+        {% endif %}
 
-    <div class="login-form">
         <form action="{% url 'login' %}" method="post">
             {{ form.as_p }}
             {% csrf_token %}
             <input type="hidden" name="next" value="{{ next }}" />
-            <p><input type="submit" value="Log-in"></p>
+            <p><input type="submit" value="Log-in" style="margin: auto; width: 500px;"></p>
         </form>
 
         <p><a href="{% url "password_reset" %}">Забули пароль?</a></p>

@@ -3,13 +3,16 @@
 {% block title %}Create an account{% endblock %}
 
 {% block content %}
-    <h1>Створити обліковий запис:</h1>
-    <p>Будь ласка, заповніть форму нижче для реєстрації:</p>
+    <div style="margin: auto; width: 800px; margin-top:20px">
+        <h1>Створити обліковий запис:</h1>
+        <p>Будь ласка, заповніть форму нижче для реєстрації:</p>
 
-    <form action="." method="post">
-        {{ user_form.as_p }}
-        {{ profile_form.as_p }}
-        {% csrf_token %}
-        <p><input type="submit" value="Зареєструватись"></p>
-     </form>
+        <form action="." method="post">
+            {{ user_form.as_p }}
+            {{ profile_form.as_p }}
+            {% csrf_token %}
+            <p><input type="submit" value="Зареєструватись"  style="margin: auto; width: 500px;"></p>
+         </form>
+    </div>
+
 {% endblock %}

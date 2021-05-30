@@ -141,8 +141,10 @@ LOGIN_REDIRECT_URL = 'main_page_view'
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_BACKEND = "sgbackend.SendGridBackend"
+# SENDGRID_API_KEY = "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"
 
 
 AUTHENTICATION_BACKENDS = [
