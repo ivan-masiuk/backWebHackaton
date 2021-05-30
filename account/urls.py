@@ -7,7 +7,7 @@ from account.views import (register,
 
 urlpatterns = [
     path('login/', auth_views.LoginView.as_view(), name='login'),
-    path('logout/', LogoutWithMessage.as_view(), name='logout'),
+    path('logout/', LogoutWithMessage.as_view(next_page="main_page_view"), name='logout'),
     path('password_change/',
          auth_views.PasswordChangeView.as_view(template_name='registration/password_change_form.html'),
          name='password_change'),
