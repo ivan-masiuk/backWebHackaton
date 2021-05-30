@@ -4,25 +4,27 @@
 {% endblock %}
 
 {% block content %}
-    <form class="search-items" method="post" style="text-align: center;">
-        {% csrf_token %}
-        <input style="" type="text" placeholder="пошук" name="q">
-        <button type="submit">пошук</button>
-    </form>
-    <div style="text-align: center;margin-top: 10px;">
-        {% if request.user.is_authenticated %}
-            <button onclick="location.href='{% url 'create_page' %}'">Опублікувати</button>
-            <button onclick="location.href='{% url 'my_items' %}'">Мої публікації</button>
-        {% endif %}
-    </div>
-    <div style="display: flex;" class="items">
-        {% for item in items %}
-            <div class="item">
-                <img src="{{ item.img.url }}">
-                <div style="font-weight: bold;text-align: center;">
-                    <a href="{% url 'item_page' item.id %}">{{ item.title }}</a>
+
+        <form class="search-items" method="post" style="text-align: center;">
+            {% csrf_token %}
+            <input style="" type="text" placeholder="пошук" name="q">
+            <button class="buttons" type="submit">пошук</button>
+        </form>
+        <div style="text-align: center;margin-top: 10px;">
+            {% if request.user.is_authenticated %}
+                <button class="buttons" onclick="location.href='{% url 'create_page' %}'">Опублікувати</button>
+                <button class="buttons" onclick="location.href='{% url 'my_items' %}'">Мої публікації</button>
+            {% endif %}
+        </div>
+        <div style="display: flex;" class="items">
+            {% for item in items %}
+                <div class="item">
+                    <img src="{{ item.img.url }}">
+                    <div style="font-weight: bold;text-align: center;">
+                        <a href="{% url 'item_page' item.id %}">{{ item.title }}</a>
+                    </div>
                 </div>
-            </div>
-        {% endfor %}
-    </div>
+            {% endfor %}
+        </div>
+
 {% endblock %}

@@ -1,12 +1,22 @@
 {% extends 'base.html' %}
 
+{% block style %}
+    <link rel="stylesheet" href="/static/css/item.css">
+    <link rel="stylesheet" href="/static/css/my-items.css">
+    <link rel="stylesheet" href="/static/css/search-page.css">
+{% endblock %}
 
 {% block content %}
-    <form method="post" enctype="multipart/form-data">
+    <div style="text-align: center;font-size: 20px;font-weight: bold;">Додати знахідку</div>
+    <form method="post" enctype="multipart/form-data" style="width: 400px;margin: auto;display: grid;margin-top: 10px;
+    padding: 10px;border-radius: 10px;
+    background: #f2f2f2;">
         {% csrf_token %}
-        <input type="text" placeholder="назва" name="title">
-        <input type="file" accept="image/*" name="img">
-        <textarea name="desc"></textarea>
-        <button>Створити</button>
+        <input style="border-radius: 10px;" type="text" placeholder="назва" name="title">
+        <input style="margin-top: 10px;" type="file" accept="image/*" name="img">
+        <textarea style="margin-top: 10px;width: 380px;min-width: 380px;max-width: 380px;border-radius: 10px;"
+                  name="desc"></textarea>
+        <button style="margin-top: 10px;width: 100px;background: #6165c3;color: white;" class="buttons">Створити
+        </button>
     </form>
 {% endblock %}
