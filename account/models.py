@@ -13,7 +13,7 @@ class Profile(models.Model):
 
     third_name = models.CharField(max_length=20, default='ThirdName')
     phone_number = PhoneNumberField(null=False, blank=False, unique=True)
-    img = models.ImageField(blank=True)
+    img = models.ImageField()
 
     class Meta:
         verbose_name = 'Профіль'

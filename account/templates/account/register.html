@@ -7,7 +7,7 @@
         <h1>Створити обліковий запис:</h1>
         <p>Будь ласка, заповніть форму нижче для реєстрації:</p>
 
-        <form action="." method="post">
+        <form action="." method="post" enctype="multipart/form-data">
             {{ user_form.as_p }}
             {{ profile_form.as_p }}
             {% csrf_token %}

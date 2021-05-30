@@ -32,9 +32,10 @@ class UserRegisterForm(UserCreationForm):
 
 
 class ProfileRegisterForm(forms.ModelForm):
+    third_name = forms.CharField(label="По-батькові")
     phone_number = PhoneNumberField(label="Номер телефону")
     photo = forms.ImageField(label='Аватар')
 
     class Meta:
         model = Profile
-        fields = ('phone_number', 'photo')
+        fields = ('third_name', 'phone_number', 'photo')
