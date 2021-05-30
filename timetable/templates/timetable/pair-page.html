@@ -2,6 +2,11 @@
 
 
 {% block content %}
-    {{ pair.subject_fk.title }}<br>
-    {{ pair.tutor_fk.first_name }}
+    <div>
+        {{ pair.subject_fk.title }}<br>
+        {{ pair.place }}<br>
+        <img src="{{ pair.tutor_fk.img.url }}">
+        {{ pair.tutor_fk.user.first_name }} {{ pair.tutor_fk.user.last_name }} {{ pair.tutor_fk.third_name }}
+        <a href="{% url 'tutor_info_view' pair.tutor_fk.id %}">оцінити</a>
+    </div>
 {% endblock %}

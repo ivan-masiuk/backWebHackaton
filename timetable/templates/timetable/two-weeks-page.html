@@ -2,13 +2,20 @@
 
 
 {% block content %}
-    {}
-    <div>
+    <div style="display: table;margin: auto;">
         {% for week in weeks %}
-            {{ week.type_week }}
-            <div>
+            {% if week.type_week == 'red' %}
+                <div>
+                    <hr style="border: 10px solid #d03c3c;">
+                </div>
+            {% else %}
+                <div>
+                    <hr style="border: 10px solid #3c84d0;">
+                </div>
+            {% endif %}
+            <div style="display: flex;border: 2px solid;border-radius: 10px;padding: 10px;">
                 {% for day in week.week_days.all %}
-                    <div>
+                    <div style="margin: 10px;">
                         {{ day.name_weekday }}
                         <div>
                             {% for pair in day.pairs.all %}
@@ -19,6 +26,7 @@
                         </div>
                     </div>
                 {% endfor %}
+
             </div>
         {% endfor %}
     </div>

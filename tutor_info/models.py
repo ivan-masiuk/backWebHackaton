@@ -26,11 +26,11 @@ class VoteAbstract(models.Model):
 class TutorStatistic(models.Model):
     tutor_profile_fk = models.ForeignKey('account.Profile', on_delete=models.CASCADE, related_name='statistics')
 
-    punctuality = models.FloatField()
-    loyalty = models.FloatField()
-    grading = models.FloatField()
-    relevance = models.FloatField()
-    positive = models.FloatField()
+    punctuality = models.FloatField(default=0.0)
+    loyalty = models.FloatField(default=0.0)
+    grading = models.FloatField(default=0.0)
+    relevance = models.FloatField(default=0.0)
+    positive = models.FloatField(default=0.0)
 
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
