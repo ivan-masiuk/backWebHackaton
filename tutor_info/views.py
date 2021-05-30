@@ -55,51 +55,41 @@ def vote_student_view(request, tutor_profile_id):
 
     action = request.POST.get('action')
 
-    form_for_student = StudentVoteForm(request.POST)
     if request.POST and action == 'Оцінити тьютора':
-        if form_for_student.is_valid():
-            student = Profile.objects.get(user=request.user)
+        student = Profile.objects.get(user=request.user)
 
-            # get data from POST
-            punctuality = int(request.POST['punctuality'])
-            loyalty = int(request.POST['loyalty'])
-            grading = int(request.POST['grading'])
-            relevance = int(request.POST['relevance'])
-            positive = int(request.POST['positive'])
+        # get data from POST
+        punctuality = int(request.POST['punctuality'])
+        loyalty = int(request.POST['loyalty'])
+        grading = int(request.POST['grading'])
+        relevance = int(request.POST['relevance'])
+        positive = int(request.POST['positive'])
 
-            # add VoteStudent
-            VoteStudent.objects.create(punctuality=punctuality,
-                                       loyalty=loyalty,
-                                       grading=grading,
-                                       positive=positive,
-                                       relevance=relevance,
-                                       tutor_profile_fk=tutor,
-                                       student_profile_fk=student)
+        # add VoteStudent
+        VoteStudent.objects.create(punctuality=punctuality,
+                                   loyalty=loyalty,
+                                   grading=grading,
+                                   positive=positive,
+                                   relevance=relevance,
+                                   tutor_profile_fk=tutor,
+                                   student_profile_fk=student)
 
-            # try to get TutorStatistic
-            statistic_tutor = getTutorStatisticByTutor(tutor)
+        # try to get TutorStatistic
+        statistic_tutor = getTutorStatisticByTutor(tutor)
 
-            # math new TutorStatistic
-            qty_votes = len(tutor.votes_by_student.all()) + 1
-            statistic_tutor.punctuality = (statistic_tutor.punctuality + punctuality) / qty_votes
-            statistic_tutor.loyalty = (statistic_tutor.loyalty + loyalty) / qty_votes
-            statistic_tutor.grading = (statistic_tutor.grading + grading) / qty_votes
-            statistic_tutor.relevance = (statistic_tutor.relevance + relevance) / qty_votes
-            statistic_tutor.positive = (statistic_tutor.positive + positive) / qty_votes
-            statistic_tutor.save()
+        # math new TutorStatistic
+        qty_votes = len(tutor.votes_by_student.all())
+        statistic_tutor.punctuality = (statistic_tutor.punctuality + punctuality) / qty_votes
+        statistic_tutor.loyalty = (statistic_tutor.loyalty + loyalty) / qty_votes
+        statistic_tutor.grading = (statistic_tutor.grading + grading) / qty_votes
+        statistic_tutor.relevance = (statistic_tutor.relevance + relevance) / qty_votes
+        statistic_tutor.positive = (statistic_tutor.positive + positive) / qty_votes
+        statistic_tutor.save()
 
-            messages.success(request, "Вітаємо, Ваш голос враховано! Дякуємо!")
-            return redirect('tutor_info_view', tutor_profile_id=tutor_profile_id)
-        else:
-            messages.warning(request, "Ви можете поставити оцінку від 1 до 5. Спробуйте ще раз!")
-            form_for_student = StudentVoteForm(request.POST)
-    else:
-        form_for_student = StudentVoteForm()
+        messages.success(request, "Вітаємо, Ваш голос враховано! Дякуємо!")
+        return redirect('tutor_info_view', tutor_profile_id=tutor_profile_id)
 
-    context = {
-        'form_for_student': form_for_student,
-    }
-    return render(request, 'tutor_info/student_vote_form.html', context)
+    return render(request, 'tutor_info/student_vote_form.html')
 
 
 def getTutorStatisticByTutor(tutor):

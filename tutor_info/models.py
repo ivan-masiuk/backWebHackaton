@@ -23,8 +23,14 @@ class VoteAbstract(models.Model):
         abstract = True
 
 
-class TutorStatistic(VoteAbstract):
+class TutorStatistic(models.Model):
     tutor_profile_fk = models.ForeignKey('account.Profile', on_delete=models.CASCADE, related_name='statistics')
+
+    punctuality = models.FloatField()
+    loyalty = models.FloatField()
+    grading = models.FloatField()
+    relevance = models.FloatField()
+    positive = models.FloatField()
 
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)

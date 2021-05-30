@@ -4,8 +4,126 @@
 {% block content %}
 
     <form action="." method="post">
-        {{ form_for_student.as_p }}
         {% csrf_token %}
+
+        <div>
+            Пунктуальність
+            <input type="radio" id="punctuality-1"
+             name="punctuality" value="1">
+            <label for="punctuality-1">1</label>
+
+            <input type="radio" id="punctuality-2"
+             name="punctuality" value="2">
+            <label for="punctuality-2">2</label>
+
+            <input type="radio" id="punctuality-3"
+             name="punctuality" value="3">
+            <label for="punctuality-3">3</label>
+
+            <input type="radio" id="punctuality-4"
+             name="punctuality" value="4">
+            <label for="punctuality-5">4</label>
+
+            <input type="radio" id="punctuality-5"
+             name="punctuality" value="5">
+            <label for="punctuality-5">5</label>
+        </div>
+
+        <div>
+            Лояльність
+            <input type="radio" id="loyalty-1"
+             name="loyalty" value="1">
+            <label for="loyalty-1">1</label>
+
+            <input type="radio" id="loyalty-2"
+             name="loyalty" value="2">
+            <label for="loyalty-2">2</label>
+
+            <input type="radio" id="loyalty-3"
+             name="loyalty" value="3">
+            <label for="loyalty-3">3</label>
+
+            <input type="radio" id="loyalty-4"
+             name="loyalty" value="4">
+            <label for="loyalty-5">4</label>
+
+            <input type="radio" id="loyalty-5"
+             name="loyalty" value="5">
+            <label for="loyalty-5">5</label>
+        </div>
+
+
+        <div>
+            Позитивний настрій
+            <input type="radio" id="positive-1"
+             name="positive" value="1">
+            <label for="positive-1">1</label>
+
+            <input type="radio" id="positive-2"
+             name="positive" value="2">
+            <label for="positive-2">2</label>
+
+            <input type="radio" id="positive-3"
+             name="positive" value="3">
+            <label for="positive-3">3</label>
+
+            <input type="radio" id="positive-4"
+             name="positive" value="4">
+            <label for="positive-5">4</label>
+
+            <input type="radio" id="positive-5"
+             name="positive" value="5">
+            <label for="positive-5">5</label>
+        </div>
+
+
+        <div>
+            Актуальніть матеріалу
+            <input type="radio" id="relevance-1"
+             name="relevance" value="1">
+            <label for="relevance-1">1</label>
+
+            <input type="radio" id="relevance-2"
+             name="relevance" value="2">
+            <label for="relevance-2">2</label>
+
+            <input type="radio" id="relevance-3"
+             name="relevance" value="3">
+            <label for="relevance-3">3</label>
+
+            <input type="radio" id="relevance-4"
+             name="relevance" value="4">
+            <label for="relevance-5">4</label>
+
+            <input type="radio" id="relevance-5"
+             name="relevance" value="5">
+            <label for="relevance-5">5</label>
+        </div>
+
+
+        <div>
+            Система оцінювання
+            <input type="radio" id="grading-1"
+             name="grading" value="1">
+            <label for="grading-1">1</label>
+
+            <input type="radio" id="grading-2"
+             name="grading" value="2">
+            <label for="grading-2">2</label>
+
+            <input type="radio" id="grading-3"
+             name="grading" value="3">
+            <label for="grading-3">3</label>
+
+            <input type="radio" id="grading-4"
+             name="grading" value="4">
+            <label for="grading-5">4</label>
+
+            <input type="radio" id="grading-5"
+             name="grading" value="5">
+            <label for="grading-5">5</label>
+        </div>
+
         <p><input type="submit" name="action" value="Оцінити тьютора"></p>
     </form>
 
