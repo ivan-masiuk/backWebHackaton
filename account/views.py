@@ -30,6 +30,7 @@ def register(request):
             # add type_user, phone number in Profile
             edit_profile = Profile.objects.get(user=new_user)
             edit_profile.phone_number = request.POST.get('phone_number')
+            edit_profile.img = request.POST.get('photo')
             edit_profile.type_user = 'guest'
             edit_profile.save()
             # message
