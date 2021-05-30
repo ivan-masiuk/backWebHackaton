@@ -1,14 +1,24 @@
 from django.contrib import messages
+from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 
-from django.core.exceptions import ObjectDoesNotExist
-
 from django.shortcuts import render, get_object_or_404, redirect
+
+from django.core.exceptions import ObjectDoesNotExist
 
 from tutor_info.models import VoteStudent, TutorStatistic
 from account.models import Profile
 
 from tutor_info.forms import StudentVoteForm
+
+
+def all_tutors_view(request):
+    users = User.objects.filter(groups__name='Tutor')
+
+    context = {
+        'users': users,
+    }
+    return render(request, 'tutor_info/all_tutors.html', context)
 
 
 def tutor_info_view(request, tutor_profile_id):
@@ -52,11 +62,15 @@ def vote_student_view(request, tutor_profile_id):
         punctuality = request.POST['punctuality']
         loyalty = request.POST['loyalty']
         grading = request.POST['grading']
+        relevance = request.POST['relevance']
+        positive = request.POST['positive']
 
         # add VoteStudent
         VoteStudent.objects.create(punctuality=punctuality,
                                    loyalty=loyalty,
                                    grading=grading,
+                                   positive=positive,
+                                   relevance=relevance,
                                    tutor_profile_fk=tutor,
                                    student_profile_fk=student)
 
@@ -68,6 +82,8 @@ def vote_student_view(request, tutor_profile_id):
         statistic_tutor.punctuality = (statistic_tutor.punctuality + punctuality) / qty_votes
         statistic_tutor.loyalty = (statistic_tutor.loyalty + loyalty) / qty_votes
         statistic_tutor.grading = (statistic_tutor.grading + grading) / qty_votes
+        statistic_tutor.relevance = (statistic_tutor.relevance + relevance) / qty_votes
+        statistic_tutor.positive = (statistic_tutor.positive + positive) / qty_votes
         statistic_tutor.save()
 
         messages.success(request, "Вітаємо, Ваш голос враховано! Дякуємо!")

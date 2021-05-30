@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    {% for user in users %}
+        <div>
+            {{ user.first_name }}
+            {{ user.last_name }}
+            {{ user.profile.third_name }}
+            <a href="{% url 'tutor_info_view' tutor_profile_id=user.profile.id%}">Дізнатись більше</a>
+        </div>
+    {% endfor %}
+
+{% endblock %}

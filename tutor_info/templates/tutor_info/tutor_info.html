@@ -6,7 +6,7 @@
         <p>Name: {{ tutor.user.first_name }} {{ tutor.user.last_name }} {{ tutor.third_name }}</p>
         <p>Phone: {{ tutor.phone_number }}</p>
         <p>Email: {{ tutor.user.email }}</p>
-        <img src="{{ tutor.img.url }}" width="189" height="255">
+{#        <img src="{{ tutor.img.url }}" width="189" height="255" alt="Sorry, no image">#}
     </div>
 
 
@@ -19,9 +19,52 @@
     </div>
 
     <div>
-        <p>Лояльність: {{  }}</p>
-        <p>Пунктуальність: {{  }} </p>
-        <p>Система оцінювання: {{  }}</p>
+        <p>Лояльність: {{ statistic_tutor.loyalty }}</p>
+        <p>Пунктуальність: {{ statistic_tutor.punctuality }} </p>
+        <p>Система оцінювання: {{ statistic_tutor.grading }}</p>
     </div>
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.3.1/chart.min.js" integrity="sha512-dCMdvmRC8BuFAgdVMPrm5MJauIcozqGY8krxgbXyUhVTvR3vzH0x2qW2nB4jFdeymins2ZubDv7osK1roNBKjg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <div style="width: 500px">
+        <canvas id="lineChart" width="50" height="50"></canvas>
+    </div>
+
+
+
+
+    <script>
+        let punctuality = {{ statistic_tutor.punctuality}};
+        let loyalty = {{ statistic_tutor.loyalty}};
+        let grading = {{ statistic_tutor.grading}};
+        let relevance = {{ statistic_tutor.relevance}};
+        let positive = {{ statistic_tutor.positive }};
+
+
+
+        let CHART = document.getElementById("lineChart");
+
+        Chart.defaults.scale.ticks.beginAtZero = true;
+
+         let myDiagramBar = new Chart(CHART, {
+                type: 'radar',
+                data: {
+                    labels: ['Лояльність', 'Пунктуальність', 'Система оцінювання', 'Актуальність матеріалу', 'Позитивний настрій'],
+                    datasets: [
+                        {
+                            label: 'Поінти (min=1, max=5)',
+                            backgroundColor: 'rgba(00,255, 00, 0.1)',
+                            borderColor: '#00FF00',
+                            borderWidth: 2,
+                            data: [loyalty, punctuality, grading, relevance, positive]
+                        },
+                    ]
+                }
+            });
+
+
+    </script>
 
 {% endblock %}

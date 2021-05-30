@@ -12,6 +12,12 @@ class VoteAbstract(models.Model):
     grading = models.PositiveIntegerField(default=1, validators=[
         MinValueValidator(1),
         MaxValueValidator(5)])
+    relevance = models.PositiveIntegerField(default=1, validators=[
+        MinValueValidator(1),
+        MaxValueValidator(5)])
+    positive = models.PositiveIntegerField(default=1, validators=[
+        MinValueValidator(1),
+        MaxValueValidator(5)])
 
     class Meta:
         abstract = True
