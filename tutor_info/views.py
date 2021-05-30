@@ -43,6 +43,7 @@ def tutor_info_view(request, tutor_profile_id):
     relevance = round(statistic_tutor.relevance, 2)
     positive = round(statistic_tutor.positive, 2)
 
+
     context = {
         'punctuality': punctuality,
         'loyalty': loyalty,
