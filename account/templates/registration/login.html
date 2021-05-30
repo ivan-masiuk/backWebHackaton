@@ -3,7 +3,7 @@
 {% block title %}Вхід{% endblock %}
 
 {% block content %}
-    <div class="login-form" style="margin: auto; width: 800px; margin-top:20px">
+    <div class="login-form" style="margin: auto; margin-top:20px; display: table;">
         <h1>Вхід</h1>
 
         {% if form.errors %}
@@ -16,7 +16,8 @@
             {{ form.as_p }}
             {% csrf_token %}
             <input type="hidden" name="next" value="{{ next }}" />
-            <p><input type="submit" value="Log-in" style="margin: auto; width: 500px;"></p>
+
+            <input type="submit" value="Log-in" style="margin: auto; width: 500px;">
         </form>
 
         <p><a href="{% url "password_reset" %}">Забули пароль?</a></p>

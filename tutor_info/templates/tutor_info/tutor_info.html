@@ -3,7 +3,7 @@
 
 {% block content %}
     <div style="margin:auto; width: 700px; margin-top: 20px;padding: 10px;border-radius: 10px;background-color: #f2f2f2;">
-        <img src="{{ tutor.img.url }}" style="width: 189px; height: 255px;object-fit: cover;" alt="Sorry, no image">
+        <img src="{{ tutor.img.url }}" style="width: 189px; height: 255px;object-fit: cover;border-radius: 10px;" alt="Sorry, no image">
         <h2>{{ tutor.user.first_name }} {{ tutor.user.last_name }} {{ tutor.third_name }}</h2>
         <p>Номер телефону: <a href="tel:{{ tutor.phone_number }}">{{ tutor.phone_number }}</a></p>
         {% if tutor.user.email %} <p>Мейл: {{ tutor.user.email }}</p> {% endif %}

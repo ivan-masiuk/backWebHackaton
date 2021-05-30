@@ -17,7 +17,7 @@
                 <form method="post" id="form_delete_{{ item.id }}">
                     {% csrf_token %}
                     <input type="hidden" name="itemid" id="item_id_{{ item.id }}" value="{{ item.id }}">
-                    <button onclick="remover({{ item.id }})" class="button-del" type="submit">видалити</button>
+                    <button onclick="remover({{ item.id }})" class="button-del" style="border-radius: 10px;" type="submit">видалити</button>
                 </form>
             </div>
         {% endfor %}
