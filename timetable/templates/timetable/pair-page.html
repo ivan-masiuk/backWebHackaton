@@ -9,7 +9,7 @@
         <div style="display: table;margin:auto;">
             <img style="border-radius: 50%;width: 100px;" src="{{ pair.tutor_fk.img.url }}">
             <span style="font-size: 20px;margin-left: 10px;margin-right: 10px;">{{ pair.tutor_fk.user.first_name }} {{ pair.tutor_fk.user.last_name }} {{ pair.tutor_fk.third_name }}</span>
-            <a href="{% url 'tutor_info_view' pair.tutor_fk.id %}">оцінити</a>
+            <a href="{% url 'tutor_info_view' pair.tutor_fk.id %}">Профіль викладача</a>
         </div>
     </div>
 {% endblock %}
