@@ -19,7 +19,7 @@ def register(request):
     if request.method == 'POST':
         user_form = UserRegisterForm(request.POST)
         profile_form = ProfileRegisterForm(request.POST)
-        if user_form.is_valid() and profile_form.is_valid() and captcha_form.is_valid():
+        if user_form.is_valid() and profile_form.is_valid():
             # create new user, but do not save to db
             new_user = user_form.save(commit=False)
             new_user.set_password(user_form.cleaned_data['password1'])

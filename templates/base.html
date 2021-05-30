@@ -66,13 +66,19 @@
             {% block nav %}
                 <ul class="nav justify-content-end">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Абітурієнтам</a>
+                        <a class="nav-link active" href="/">Головна</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Бюро знахідок</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Довідка</a>
+                        <a class="nav-link" href="{% url "all_tutors_view" %}">Викладачі</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url "login" %}">Увійти</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url "register" %}">Зареєструватись</a>
                     </li>
                 </ul>
             {% endblock %}
