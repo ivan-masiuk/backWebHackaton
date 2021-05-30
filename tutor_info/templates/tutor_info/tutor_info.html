@@ -2,38 +2,35 @@
 
 
 {% block content %}
-    <div style="margin:auto; width: 700px; margin-top: 20px" >
+    <div style="margin:auto; width: 700px; margin-top: 20px;padding: 10px;border-radius: 10px;background-color: #f2f2f2;">
+        <img src="{{ tutor.img.url }}" style="width: 189px; height: 255px;object-fit: cover;" alt="Sorry, no image">
         <h2>{{ tutor.user.first_name }} {{ tutor.user.last_name }} {{ tutor.third_name }}</h2>
-        <p>Номер телефону: {{ tutor.phone_number }}</p>
-        <p>Мейл: {{ tutor.user.email }}</p>
-        <img src="{{ tutor.img.url }}" width="189" height="255" alt="Sorry, no image">
+        <p>Номер телефону: <a href="tel:{{ tutor.phone_number }}">{{ tutor.phone_number }}</a></p>
+        {% if tutor.user.email %} <p>Мейл: {{ tutor.user.email }}</p> {% endif %}
     </div>
+    <div style="width: 700px;margin: auto;margin-top: 20px;background-color: #f2f2f2;border-radius: 10px;padding: 10px;">
+        <div>
+            <p>Лояльність: {{ statistic_tutor.loyalty }}</p>
+            <p>Пунктуальність: {{ statistic_tutor.punctuality }} </p>
+            <p>Система оцінювання: {{ statistic_tutor.grading }}</p>
+            <p>Актуальність матеріалу: {{ statistic_tutor.relevance }}</p>
+            <p>Позитивний настрій: {{ statistic_tutor.positive }}</p>
+
+        </div>
 
 
-    <div>
-        <form action="." method="post">
-            {% csrf_token %}
-            <p><input type="submit" name="action" value="Оцінити тьютора"></p>
-        </form>
-
-    </div>
-
-    <div>
-        <p>Лояльність: {{ statistic_tutor.loyalty }}</p>
-        <p>Пунктуальність: {{ statistic_tutor.punctuality }} </p>
-        <p>Система оцінювання: {{ statistic_tutor.grading }}</p>
-        <p>Актуальність матеріалу: {{ statistic_tutor.relevance }}</p>
-        <p>Позитивний настрій: {{ statistic_tutor.positive }}</p>
-
-    </div>
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.3.1/chart.min.js" integrity="sha512-dCMdvmRC8BuFAgdVMPrm5MJauIcozqGY8krxgbXyUhVTvR3vzH0x2qW2nB4jFdeymins2ZubDv7osK1roNBKjg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <div style="width: 200px;
-                height: 200px;
-                object-fit: cover;
-                border-radius: 10px;">
-        <canvas id="lineChart" width="50" height="50"></canvas>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.3.1/chart.min.js"
+                integrity="sha512-dCMdvmRC8BuFAgdVMPrm5MJauIcozqGY8krxgbXyUhVTvR3vzH0x2qW2nB4jFdeymins2ZubDv7osK1roNBKjg=="
+                crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <div style="width: 400px;height: 400px;object-fit: cover;border-radius: 10px;display: table;margin: auto;">
+            <canvas id="lineChart" width="50" height="50"></canvas>
+        </div>
+        <div>
+            <form action="." method="post">
+                {% csrf_token %}
+                <p><input type="submit" name="action" value="Оцінити тьютора"></p>
+            </form>
+        </div>
     </div>
 
 
@@ -47,26 +44,25 @@
         let positive = {{ statistic_tutor.positive }};
 
 
-
         let CHART = document.getElementById("lineChart");
 
         Chart.defaults.scale.ticks.beginAtZero = true;
 
-         let myDiagramBar = new Chart(CHART, {
-                type: 'radar',
-                data: {
-                    labels: ['Лояльність', 'Пунктуальність', 'Система оцінювання', 'Актуальність матеріалу', 'Позитивний настрій'],
-                    datasets: [
-                        {
-                            label: 'Поінти (min=1, max=5)',
-                            backgroundColor: 'rgba(00,255, 00, 0.1)',
-                            borderColor: '#00FF00',
-                            borderWidth: 2,
-                            data: [loyalty, punctuality, grading, relevance, positive]
-                        },
-                    ]
-                }
-            });
+        let myDiagramBar = new Chart(CHART, {
+            type: 'radar',
+            data: {
+                labels: ['Лояльність', 'Пунктуальність', 'Система оцінювання', 'Актуальність матеріалу', 'Позитивний настрій'],
+                datasets: [
+                    {
+                        label: 'Поінти (min=1, max=5)',
+                        backgroundColor: 'rgba(00,255, 00, 0.1)',
+                        borderColor: '#00FF00',
+                        borderWidth: 2,
+                        data: [loyalty, punctuality, grading, relevance, positive]
+                    },
+                ]
+            }
+        });
 
 
     </script>

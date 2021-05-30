@@ -2,13 +2,13 @@
 
 
 {% block content %}
-    {% for user in users %}
-        <div>
-            {{ user.first_name }}
-            {{ user.last_name }}
-            {{ user.profile.third_name }}
-            <a href="{% url 'tutor_info_view' tutor_profile_id=user.profile.id%}">Дізнатись більше</a>
-        </div>
-    {% endfor %}
-
+    <div style="width: 600px;margin: auto;">
+        {% for user in users %}
+            <div style="background-color: #f2f2f2;border-radius: 10px;margin:auto;padding: 10px;margin-top: 10px;">
+                <img style="width: 100px;height: 100px;object-fit: cover;border-radius: 50%;" src="{{ user.profile.img.url }}">
+                <span style="font-size: 20px;">{{ user.first_name }} {{ user.last_name }} {{ user.profile.third_name }}</span>
+                <a href="{% url 'tutor_info_view' tutor_profile_id=user.profile.id %}">Дізнатись більше</a>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}
