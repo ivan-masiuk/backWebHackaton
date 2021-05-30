@@ -12,6 +12,7 @@ def main_page_view(request):
     action = request.POST.get('action')
 
     if request.POST and action == 'Знайти':
+        print("аааа")
         name_group = request.POST['name_group']
         groups = Group.objects.all()
         for group in groups:
@@ -19,7 +20,7 @@ def main_page_view(request):
                 return redirect('two_weeks_view', group_id=group.id)
         else:
             messages.warning(request, "на жаль, такої групи не існує!")
-            return redirect('main_page')
+            return redirect('main_page_view')
 
     return render(request, 'start-page.html')
 
